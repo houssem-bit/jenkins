@@ -39,7 +39,7 @@ pipeline {
                nexusArtifactUploader artifacts: [
                    [
                        artifactId: 'positionsimulator', classifier: '',
-                       file: 'target/positionsimulator-0.0.1-SNAPSHOT.war', 
+                       file: 'target/positionsimulator.war', 
                        type: 'war'
                    ]
                 ], 
