@@ -49,7 +49,7 @@ pipeline {
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'http://192.168.1.101:8081/repository/tracker', 
-                version: '0.0.1-SNAPSHOT'
+                version: ''
              }
         }
 
