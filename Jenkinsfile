@@ -34,6 +34,26 @@ pipeline {
             }
         }
 
+        stage ('nexus') {
+            steps {
+               nexusArtifactUploader artifacts: [
+                   [
+                       artifactId: 'positionsimulator', classifier: '',
+                       file: 'target/positionsimulator-0.0.1-SNAPSHOT.war', 
+                       type: 'war'
+                   ]
+                ], 
+                credentialsId: 'admin', 
+                groupId: 'com.virtualpairprogrammers', 
+                nexusUrl: '192.168.1.101:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'http://192.168.1.101:8081/repository/tracker/', 
+                version: '0.0.1-SNAPSHOT'
+             }
+        }
+
+
         stage ("image build") {
             steps {
                 echo 'building docker image'
