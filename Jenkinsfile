@@ -37,9 +37,11 @@ pipeline {
         stage ("image build") {
             steps {
                 echo 'building docker image'
-                sh 'docker login -u veteron90 -p Lespumas1 docker.io'
-                sh "docker build -t veteron90/tracker:${commit_id} ."
-                sh "docker push veteron90/tracker:${commit_id} "
+                //sh 'docker login -u veteron90 -p Lespumas1 docker.io'
+                //sh "docker build -t veteron90/tracker:${commit_id} ." 
+                sh "docker build -t 192.168.1.101:8081/repository/tracker/:${commit_id} ."
+                //sh "docker push veteron90/tracker:${commit_id} "
+                sh "docker push 192.168.1.101:8081/repository/tracker/:${commit_id} "
                 echo 'docker image built'
             }
         }
